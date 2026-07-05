@@ -9,6 +9,13 @@ To do :-
 
 # TODO
 
-- [ ] Print is not working.
-- [ ] Place an image in the grid.
-- [ ] If possible, move the image across the grid.
+- [o] Print is not working.
+- [o] Place an image in the grid.
+- [x] If possible, move the image across the grid.
+
+July 5 - Updates
+
+To do:-
+
+- [ ] Resize image to the size of grid
+- [ ] Zoom in and zoom out the game screen 
