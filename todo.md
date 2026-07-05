@@ -7,6 +7,8 @@ Worked on :-
 
 To do :-
 
-- Print is not working.
-- Place an image in the grid.
-- If possible move the image across the grid.
+# TODO
+
+- [ ] Print is not working.
+- [ ] Place an image in the grid.
+- [ ] If possible, move the image across the grid.
