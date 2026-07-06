@@ -3,9 +3,9 @@ extends Node2D
 @export var test_image: Sprite2D
 
 
-const cell_size = 64
-const grid_width = 20
-const grid_height = 20
+const cell_size = 128
+const grid_width = 10
+const grid_height = 10
 @export var line_color := Color(1, 1, 1, 0.3)  # white, semi-transparent
 @export var line_width := 1.0
 
@@ -42,12 +42,21 @@ func mouse_position_to_grid(world_position: Vector2) -> Vector2i:
 # Function that tells which grid is selected by the mouse
 func grid_to_screen_position(world_position: Vector2i) -> Vector2:
 	return Vector2(world_position.x * cell_size, world_position.y * cell_size)
+	
+func resize_image_to_cell_size (image: Sprite2D, cell_size: float):
+	var image_size = image.texture.get_size()
+	image.scale = Vector2(cell_size / image_size.x, cell_size / image_size.y)
+	return image
+	
+func center_image_position_in_grid (image_position: Vector2i) -> Vector2:
+	return grid_to_screen_position(image_position) + Vector2(cell_size / 2.0, cell_size / 2.0)
 
 func test_print():
-	var move_image_to_top_left = grid_to_screen_position(image_position)
+	var move_image_to_top_left = center_image_position_in_grid(image_position)
 	print(move_image_to_top_left, "Position of the image")
 	print("Image: ", test_image, " is assigned to grid position: ", image_position)
-	test_image.position = move_image_to_top_left
+	var resized_test_image = resize_image_to_cell_size(test_image, cell_size)
+	resized_test_image.position = move_image_to_top_left
 	
 	
 func _input(event):
